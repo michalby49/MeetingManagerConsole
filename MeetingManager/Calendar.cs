@@ -11,7 +11,6 @@ namespace MeetingManager
         public DateTime WorkStart { get; set; }
         public DateTime WorkEnd { get; set; }
 
-        public List<DateTime> FreeTime { get; set; }
         public IEnumerable<Meeting> Meetings { get; set; }
     }
 }
