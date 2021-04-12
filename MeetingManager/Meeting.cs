@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MeetingManager
 {
-    class Meeting
+    public class Meeting
     {
         public int Id { get; set; }
         public DateTime Start { get; set; }
