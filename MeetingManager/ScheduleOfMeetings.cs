@@ -50,9 +50,6 @@ namespace MeetingManager
         {
             var freeTime = new List<DateTime>();
 
-
-            calendar.FreeTime = new List<DateTime>();
-
             if (calendar.Meetings.First(x => x.Id == 0).Start - calendar.WorkStart >= meetingDuration)
             {
                 var timeBetween = calendar.WorkStart;
