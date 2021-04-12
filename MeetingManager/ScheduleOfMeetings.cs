@@ -17,6 +17,7 @@ namespace MeetingManager
 
             var availableTime = new List<DateTime>();
 
+            //Znajdowanie wspólnych przerw między spotkaniami
             foreach (var availableTime1 in calendar1AvailableTime)
             {
                 foreach (var availableTime2 in calendar2AvailableTime)
@@ -28,16 +29,15 @@ namespace MeetingManager
                 }
             }
 
+
             var tablica = availableTime.ToArray();
-            
-            
             var correctTime = $"[[{tablica[0].ToString("HH:mm")}, ";
             for (int i = 1; i < tablica.Length; i++)
             {
                 if (!(tablica[i] - oneMinute == tablica[i - 1]))
                 {
                     correctTime += $"{ tablica[i - 1].ToString("HH:mm")}], ";
-                    correctTime += $"[ { tablica[i].ToString("HH:mm")}, ";
+                    correctTime += $"[{ tablica[i].ToString("HH:mm")}, ";
                 }
             }
             
@@ -46,6 +46,7 @@ namespace MeetingManager
             return correctTime;
         }
 
+        //Znajdowanie przerw między spotkaniami 
         private List<DateTime> FreeTimeCounter(Calendar calendar, TimeSpan meetingDuration)
         {
             var freeTime = new List<DateTime>();
@@ -75,7 +76,7 @@ namespace MeetingManager
             if (calendar.WorkEnd - calendar.Meetings.Last().End >= meetingDuration)
             {
                 var timeBetween = calendar.Meetings.Last().End;
-                while (timeBetween <= calendar.WorkEnd)
+                while (timeBetween<= calendar.WorkEnd)
                 {
                     freeTime.Add(timeBetween);
                     timeBetween += oneMinute;

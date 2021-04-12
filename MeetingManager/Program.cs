@@ -12,6 +12,9 @@ namespace MeetingManager
     {   
         static void Main(string[] args)
         {
+
+            //Wartości wpisane na sztywno z przykładu
+
             TimeSpan meetingDuration = new TimeSpan(0, 30, 0);
 
             var calendar1 = new Calendar
@@ -73,7 +76,6 @@ namespace MeetingManager
             };
 
             var scheduleOfMeetings = new ScheduleOfMeetings();
-
             Console.WriteLine(scheduleOfMeetings.GetPossibleDatesOfMeetings(calendar1, calendar2, meetingDuration));
 
         }
